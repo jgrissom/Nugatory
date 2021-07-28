@@ -26,5 +26,12 @@ namespace WordApi.Controllers
         {
             return _dataContext.WordColors.Find(id);
         }
+        [HttpPost]
+        // add event
+        public WordColor Post([FromBody] WordColor wordColor) => _dataContext.AddWord(new WordColor
+        {
+            Word = wordColor.Word,
+            Color = wordColor.Color
+        });
     }
 }
