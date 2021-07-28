@@ -21,5 +21,10 @@ namespace WordApi.Controllers
         {
             return _dataContext.WordColors;
         }
+        [HttpGet("{id}")]
+        public WordColor Get(int id)
+        {
+            return _dataContext.WordColors.Find(id);
+        }
     }
 }
