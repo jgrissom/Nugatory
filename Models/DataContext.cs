@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace Nugatory.Models
@@ -13,6 +14,12 @@ namespace Nugatory.Models
             this.Add(wordColor);
             this.SaveChanges();
             return wordColor;
+        }
+
+        public void DeleteWord(int id)
+        {
+            this.Remove(this.WordColors.FirstOrDefault(wc => wc.Id == id));
+            this.SaveChanges();
         }
     }
 }

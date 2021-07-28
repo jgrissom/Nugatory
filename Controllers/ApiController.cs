@@ -33,5 +33,14 @@ namespace WordApi.Controllers
             Word = wordColor.Word,
             Color = wordColor.Color
         });
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id){
+            WordColor wc = _dataContext.WordColors.Find(id);
+            if (wc == null){
+                return NotFound();
+            }
+            _dataContext.DeleteWord(id);
+            return NoContent();
+        } 
     }
 }
